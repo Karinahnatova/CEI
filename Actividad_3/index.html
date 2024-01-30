@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <!-- Cuadrado que cambiará de color -->
+    <section>
+        <div class="cuadro">
+            <p>#000000</p>
+        </div>
+    </section>
+    <!-- Sección de los controles de colores -->
+    <section>
+        <!-- Control rojo -->
+        <div class="control">
+            <div class="cuadro"></div>
+            <input type="range" min="0" max="255" value="0">
+        </div>
+        <!-- Control verde -->
+        <div class="control">
+            <div class="cuadro"></div>
+            <input type="range" min="0" max="255" value="0">
+        </div>
+        <!-- Control azul -->
+        <div class="control">
+            <div class="cuadro"></div>
+            <input type="range" min="0" max="255" value="0">
+        </div> 
+    </section>
+
+    <div class="contenedor_botones">
+        <button  class="boton_guardar">GUARDAR COLOR</button>
+        <button  class="boton_borrar">BORRAR LISTA</button>
+    </div>
+    
+    <div class="contenedor_lista_colores">
+        <ul class="lista_colores" id="listaColores">
+            <!-- Lista de colores se agregará aquí -->
+        </ul>
+
+    <!-- Etiqueta script -->
+    <script src="js/funciones.js"></script>
+
+   
+
+</body>
+</html>
