@@ -33,3 +33,9 @@ console.log(nombre)
 // Escribir nuestro código en index.js
 // Ejecutar el proyecto en modo desarrollo con npm run dev
 // Para de ejecutar el proyecto en modo desarrollo con Ctrl + C
+
+
+
+
+//
+//npm create vite@latest, react, javascript
