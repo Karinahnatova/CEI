@@ -11,8 +11,7 @@ const TarjetaProducto = ({ nombre, precio, stock, img, children }) => {
         <li><span className="bold">Stock:</span> {stock}</li>
       </ul>
       <span className="children">{children}</span>
-      {/* <button>{stock > 0 ? `Comprar ${nombre}` : "SIN STOCK"}</button> */}
-      {stock > 0 ? <button className="boton_comprar">Comprar {nombre}</button> : <span className="sin_stock">SIN STOCK</span>}
+      {stock > 0 ? <button className="boton_comprar">Comprar {nombre}</button> : <button className="sin_stock">SIN STOCK</button>}
 
       
     </div>
