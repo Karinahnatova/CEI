@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ListaProductos from "./ListaProductos/LsitaProductos.jsx"
 
 
 function App() {
@@ -62,50 +63,52 @@ function App() {
 
 
 
-  const Componente = () => {
-    return (
-      <>
-      <h1>soy un componente</h1>
-      <ul>
-        <li>{props.prop1}</li>
-        <li>{props.prop2}</li>
-        <li>{props.prop3}</li>
-        <li>{props.prop4}</li>
+  // const Componente = () => {
+  //   return (
+  //     <>
+  //     <h1>soy un componente</h1>
+  //     <ul>
+  //       <li>{props.prop1}</li>
+  //       <li>{props.prop2}</li>
+  //       <li>{props.prop3}</li>
+  //       <li>{props.prop4}</li>
         
 
-      </ul>
-      </>
-    )
+  //     </ul>
+  //     </>
+  //   )
+  // }
+  // const props = {
+  //   prop1: "valor1",
+  //   prop2: "valor2",
+  //   prop3: "valor3",
+  //   prop4: "valor4"
+
+  // }
+
+
+
+  // return (
+  //   <>
+  //     <h1>SPREADS</h1>
+  //     <Componente {...props}/>
+  //   </>
+  // )
+
+
+
+  const productos = {
+    producto1: "patata",
+    producto2: "pera",
+    producto3: "zanahoria",
+    producto4: "lechuga",
+    producto5: "aguacate"
   }
-  const props = {
-    prop1: "valor1",
-    prop2: "valor2",
-    prop3: "valor3",
-    prop4: "valor4"
-
-  }
-
-
-
-  return (
-    <>
-      <h1>SPREADS</h1>
-      <Componente {...props}/>
-    </>
-  )
-
-
-
-  const productos = [
-    {
-     
-
-    }
-  ]
+  
   return (
     <div>
-      
-      
+      <ListaProductos {...productos}/>
+    
     </div>
     
   )
