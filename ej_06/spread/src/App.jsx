@@ -1,8 +1,27 @@
 import { useEffect, useState } from 'react'
-import ListaProductos from "./ListaProductos/LsitaProductos.jsx"
+// import ListaProductos from "./ListaProductos/LsitaProductos.jsx"
 
 
 function App() {
+ //const [count, setCount] = useState(0)
+ //mi varibale es la varibale 
+ //setMiVariable es una funcion que va a actualizar la variable
+  const [miVariable, setMiVariable] = useState(24) //le envio el valor defecto
+  const [contador, setContador] = useState(["lechuga", "papa"])
+
+  const usersData = [
+    {id:1, nombre: "Julia", isAdmin: true, edad:29, deporte: "tenis"},
+    {id:2, nombre: "Julia", isAdmin: false, edad:29},
+    {id:3, nombre: "Julia", isAdmin: true, edad:29},
+    {id:4, nombre: "Julia", isAdmin: true, edad:29},
+    {id:5, nombre: "Julia", isAdmin: true, edad:29}
+
+  ]
+
+  const [usuarios, setUsuarios] = useState(usersData) 
+  
+
+
 
   useEffect( () => {
     
@@ -95,22 +114,75 @@ function App() {
   //   </>
   // )
 
+ //ACTIVIDAD SPPREAD
 
+  // const usuarios = [
+  //   {id:1, nombre: "Julia", isAdmin: true, edad:29, deporte: "tenis"},
+  //   {id:2, nombre: "Julia", isAdmin: false, edad:29},
+  //   {id:3, nombre: "Julia", isAdmin: true, edad:29},
+  //   {id:4, nombre: "Julia", isAdmin: true, edad:29},
+  //   {id:5, nombre: "Julia", isAdmin: true, edad:29}
 
-  const productos = {
-    producto1: "patata",
-    producto2: "pera",
-    producto3: "zanahoria",
-    producto4: "lechuga",
-    producto5: "aguacate"
-  }
+  // ]
+
+  // const Usuario = ({nombre, isAdmin, edad, deporte="no tiene"}) => {
+  //   return(
+  //   <>
+  //     <li>
+  //     valor de mi variable: {miVariable} <br />
+  //     nombre: {nombre} <br />
+  //     edad: {edad} <br />
+  //     {isAdmin && <strong>SOY ADMIN</strong>} <br />
+  //     deporte favorito: {deporte}
+  //     </li>
+  //   </>
+  //   )
+  // }
   
+  
+  // return (
+  //   <div>
+  //     <button onClick={()=> {  usersData.push({id:6, nombre: "Alina", isAdmin: false, edad:2})
+  //       // let miArray = usuarios
+  //       // miArray.push({id:6, nombre: "Alina", isAdmin: false, edad:2})
+  //       const random = Math.random()
+  //       setUsuarios([...usuarios, {id:random, nombre: "Alina", isAdmin: false, edad:2}])
+
+  //     }}>Click me</button>
+  //     <ul>
+  //     {usuarios.map((user)=> (
+  //       <Usuario key= {user.id} {...user}/>
+
+  //     ))}
+  //     </ul>
+  //   </div>
+    
+  // )
+
+  const ToDoList = ({deber}) => {
+    return (
+      <>
+      <li><input type="checkbox" name="deber" id="deber" />{deber}</li>
+      </>
+    )
+
+  } 
+
+  const deberes = [
+    {id:1, deber: "Ir al supermercado"},
+    {id:2, deber: "Sacar al perro"},
+    {id:3, deber: "Estudiar"},
+    {id:4, deber: "Hacer la cena"},
+    {id:5, deber: "Limpiar la casa"},
+
+  ]
+
   return (
     <div>
-      <ListaProductos {...productos}/>
-    
+      <ul>
+      
+      </ul>
     </div>
-    
   )
 }
 
