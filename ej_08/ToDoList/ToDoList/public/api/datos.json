@@ -1,0 +1,5 @@
+[
+    {"id":1, "tarea": "Ir al supermercado", "isCompletada": true },
+    {"id":2, "tarea": "Limpiar la casa", "isCompletada": false },
+    {"id":3, "tarea": "Estudiar", "isCompletada": true }
+]

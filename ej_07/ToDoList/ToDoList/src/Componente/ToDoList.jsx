@@ -1,13 +1,15 @@
 import "./ToDoList.css"
 import { useState } from "react"
 
+// //Lista de tareas
+const [tareas, setTareas] = useState(listaTareas)
+
+// //texto para el input
+const [textoTarea, setTextoTarea] = useState('')
+
 export const ToDoList = ({listaTareas}) => {
 
-    // //Lista de tareas
-    const [tareas, setTareas] = useState(listaTareas)
-
-    // //texto para el input
-    const [textoTarea, setTextoTarea] = useState('')
+    
 
     //const agregarTarea = () => {
 
