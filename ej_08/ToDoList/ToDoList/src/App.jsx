@@ -28,14 +28,22 @@ const [data, setData] = useState([])
 //1.cuando se crea el componente
 //2.cuando se re-renderiza el componente
 const fetchData = async ()=> {
-  const response = await fetch("./public/api/datos.json")
-  const jsonData = await response.json()
+  try{
+    const response = await fetch("./public/api/datos.json")
+    const jsonData = await response.json()
 
-  // console.log(jsonData)
-  setData(jsonData)
-  setIsLoading(false)
+    if(!response.ok) {
+      throw new error("tivimos un error al obtener los datos")
+    }
+  
+    // console.log(jsonData)
+    setData(jsonData)
+    setIsLoading(false)
+  
 
-
+  }catch (error) {
+    console.log("tuve un error", error)
+  }
 }
 //3.cuand se elimina el componente
 
