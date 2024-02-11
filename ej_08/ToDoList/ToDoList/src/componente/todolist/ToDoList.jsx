@@ -5,7 +5,7 @@ import Confetti from 'react-confetti'
 export const ToDoList = ({listaTareas}) => {
 
 
-    // 1.USO DE HOOCKS Y DECLARACION DE VARIABLES
+    // 1.USO DE HOOKS Y DECLARACION DE VARIABLES
 
 //Lista de tareas
 const [tareas, setTareas] = useState(listaTareas)
