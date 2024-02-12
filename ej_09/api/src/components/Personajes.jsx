@@ -22,41 +22,33 @@ const PageButtons = (props) => {
 
 }
 
-const InputFilter = (personajes)=> {
-  const [filter, setFilter] = useState ({
-    species:"",
-    status: "",
-    gender: "",
-    origin: "",
-  })
-  const [valorSeleccionado, setValorSeleccionado] = useState('')
+const FilterButtons = ({setFiltro})=> {
 
-  return(
-    <section className="box_filter">
-    <div>
-      <select className="input_filter" name="personajes" id="filter" value={valorSeleccionado}>
-        <option value="humanos">Humanos</option>
-        <option value="alienigenas">Alienigenas</option>
-        <option value="todos">Todos los personajes</option>
-
-      </select>
+  
+  return (
+    <div className="botones_filtro">
+      <button onClick={() => setFiltro('')}>Todos los personajes</button>
+      <button onClick={() => setFiltro('Human')}>Humanos</button>
+      <button onClick={() => setFiltro('Alien')}>Aliens</button>
     </div>
-    </section>
   )
+
+ 
 }
 
 
 export const Personajes = () => {
   const [characters, setCharacters] = useState([]);
   const [pagina, setPagina] = useState(1)
+  const [filtro, setFiltro] = useState('')
 
   useEffect(() => {
     fetchCharacters();
-  }, [pagina, filter]);
+  }, [pagina, filtro])
 
   const fetchCharacters = async () => {
     try {
-      const response = await fetch("https://rickandmortyapi.com/api/character?page=" + pagina); //o también se podría hacer con strings: `phttps://rickandmortyapi.com/api/character?page=${pagina}`
+      const response = await fetch(`https://rickandmortyapi.com/api/character?page=${pagina} ${filtro ? `&species=${filtro}` : ''}`);
       const data = await response.json();
       setCharacters(data.results);
     } catch (e) {
@@ -68,7 +60,7 @@ export const Personajes = () => {
     <>
     <PageButtons pagina={pagina} setPagina={setPagina}/>
     <h1 className="titulo_h1">Personajes</h1>
-    <div><InputFilter/></div>
+    <FilterButtons setFiltro={setFiltro}/>
     <div className="personajes_box">
 
       {characters.map((character) => {
