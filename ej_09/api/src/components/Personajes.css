@@ -114,4 +114,13 @@
 
 }
 
+.input_filter {
+    font-family: "Bebas Neue", sans-serif;
+    border: 2px solid black;
+}
+
+.box_filter {
+    display: flex;
+    justify-content: center;
+}
 

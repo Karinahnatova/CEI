@@ -7,7 +7,15 @@ const PageButtons = (props) => {
   return(
     <header className="header_botones">
       <p className="numeracion_pag">página: <span>{props.pagina}</span></p>
-      <button className="boton_atrás" onClick={()=> props.setPagina(props.pagina - 1)}>página {props.pagina - 1}</button>
+      <button className="boton_atrás" onClick={()=> {
+        if (props.pagina > 1 ) {
+          props.setPagina(props.pagina - 1) 
+
+        }
+
+      }
+
+      }>página {props.pagina - 1}</button>
       <button className="boton_siguiente" onClick={()=> props.setPagina(props.pagina + 1)}>página {props.pagina + 1}</button>
     </header>
   )
@@ -15,17 +23,25 @@ const PageButtons = (props) => {
 }
 
 const InputFilter = (personajes)=> {
+  const [filter, setFilter] = useState ({
+    species:"",
+    status: "",
+    gender: "",
+    origin: "",
+  })
   const [valorSeleccionado, setValorSeleccionado] = useState('')
 
   return(
+    <section className="box_filter">
     <div>
-      <select name="personajes" id="filter" value={valorSeleccionado}>
+      <select className="input_filter" name="personajes" id="filter" value={valorSeleccionado}>
         <option value="humanos">Humanos</option>
         <option value="alienigenas">Alienigenas</option>
         <option value="todos">Todos los personajes</option>
 
       </select>
     </div>
+    </section>
   )
 }
 
@@ -36,7 +52,7 @@ export const Personajes = () => {
 
   useEffect(() => {
     fetchCharacters();
-  }, [pagina]);
+  }, [pagina, filter]);
 
   const fetchCharacters = async () => {
     try {
@@ -67,6 +83,8 @@ export const Personajes = () => {
             'desconocido'}`}></div></li>
             <li><span>Specie:</span> {character.species}</li>
             <li><span>Gender:</span> {character.gender}</li>
+            <li><span>Origin:</span> {character.origin.name}</li>
+
             {/* <li><span>Lugar</span></li> */}
 
           </ul>

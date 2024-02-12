@@ -7,11 +7,7 @@ import { Lugares } from './components/Lugares'
 import { Personajes } from './components/Personajes'
 
 function App() {
-  const [paginaActual, setPaginaActual] = useState('personajes', 'episodios')
-  
-
-
-
+  const [paginaActual, setPaginaActual] = useState('personajes') //al actualizar la pagina, apareceerá la seccioón de personajes
 
   return (
     <div className='rick_morty_box'>
@@ -25,9 +21,6 @@ function App() {
     {paginaActual === "personajes" && <Personajes/>}
     {paginaActual === "episodios" && <Episodios/>}
     {paginaActual === "lugares" && <Lugares/>}
-
-    
-
 
     </div>
   )
