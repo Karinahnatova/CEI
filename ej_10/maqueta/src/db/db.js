@@ -44,27 +44,30 @@ export const pixar = {
         {
             id: uuidv4(),
             src: "https://images.squarespace-cdn.com/content/v1/51cdafc4e4b09eb676a64e68/1489515186655-LQ8Q6L0MFGETKRSTD0UW/image-asset.jpeg?format=750w",
+            href: "https://www.pixar.com/careers-at-pixar",
             h3: "Careers At Pixar"
         },
         {
             id: uuidv4(),
             src: "https://images.squarespace-cdn.com/content/v1/51cdafc4e4b09eb676a64e68/14d587cf-008b-403e-aa2d-78a0d91c98cf/Home_Lower-elio.jpg?format=750w",
+            href: "https://www.youtube.com/watch?v=2w_K3CB8PuE",
             h3: "Elio"
         },
         {
             id: uuidv4(),
             src: "https://images.squarespace-cdn.com/content/v1/51cdafc4e4b09eb676a64e68/9c25e4d4-ad11-421d-ab84-afda6157e3a5/wl_lower.jpg?format=750w",
-            sh3: "Win Or Lose"
+            href:"https://www.pixar.com/win-or-lose",
+            h3: "Win Or Lose"
         }
     ],
 
     footer: {
 
         div: [
-            {id: uuidv4(), src: "logo_facebook.png", href: "/"},
-            {id: uuidv4(), src: "logo_twitter.png", href: "/"},
-            {id: uuidv4(), src: "logo_youtube.png", href: "/"},
-            {id: uuidv4(), src: "logo_instagram.png", href: "/"}
+            {id: uuidv4(), src: "https://cdn-icons-png.flaticon.com/128/3128/3128208.png", href: "https://www.facebook.com/Pixar/"},
+            {id: uuidv4(), src: "https://cdn-icons-png.flaticon.com/128/733/733635.png", href: "https://twitter.com/pixar"},
+            {id: uuidv4(), src: "https://cdn-icons-png.flaticon.com/128/733/733646.png", href: "https://www.youtube.com/pixar"},
+            {id: uuidv4(), src: "https://cdn-icons-png.flaticon.com/128/1384/1384031.png", href: "https://www.instagram.com/pixar"}
         ],
 
         p: [
@@ -75,14 +78,14 @@ export const pixar = {
             {id: uuidv4(), text: "Interest-Based Ads", href: "https://www.pixar.com/#:~:text=ONLINE%20PRIVACY%20POLICY-,INTEREST%2DBASED%20ADS,-%C2%A9%201986%2D2023%20DISNEY" }
         ],
 
-        p: {
+        h4: {
             id: uuidv4(),
             text: "© 1986-2023 DISNEY / PIXAR"
         },
 
         button: {
             id: uuidv4(),
-            text: "Do No Sell or Share My Personal Infromation",
+            text: "Do Not Sell or Share My Personal Infromation",
             href: "https://www.pixar.com/#:~:text=Share%20My%20Personal-,Information"
         }
 

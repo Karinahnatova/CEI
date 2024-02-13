@@ -1,0 +1,9 @@
+.Hero-backgroundsrc {
+    position: absolute;
+    z-index: -2;
+}
+
+.Hero-text img{
+    position: absolute;
+    z-index: 2;
+}
