@@ -1,0 +1,40 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header-ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.Header-li {
+    border: 1px solid black;
+    text-transform: uppercase;
+
+}
+
+.Header-a {
+    text-decoration: none;
+}
+
+.Header-btn {
+    display: none;
+
+}
+
+
+@media (max-width: 500px) {
+    .Header-btn {
+        display: block;
+    }
+
+    .Header-nav.isVisible {
+        display: block;
+    }
+
+    .Header-nav {
+        display: none;
+    }
+}

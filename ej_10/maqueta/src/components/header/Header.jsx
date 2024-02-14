@@ -1,4 +1,5 @@
 import {pixar} from "../../db/db.js"
+import './Header.css'
 
 //deconstruimos
 const {header} = pixar
@@ -23,7 +24,7 @@ const Logo = ()=> {
                 <a className="Header-a" href={h1.href}>
                     <img className="Header-img" src={h1.src} alt={h1.title} />
                 </a>
-            </h1>
+        </h1>
     )
 }
 
