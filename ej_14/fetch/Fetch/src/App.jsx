@@ -1,5 +1,5 @@
 
-import { Users } from './fetch/fetch'
+import { Users } from './fetch/Fetch'
 
 function App() {
 

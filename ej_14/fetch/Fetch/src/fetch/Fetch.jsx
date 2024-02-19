@@ -8,14 +8,37 @@ export const Users = ()=> {
     }, [])
 
     const fetchUsers = async ()=> {
-        try { 
-            const response = await fetch (`https://jsonplaceholder.typicode.com/users`)
-            const data = await response.json()
-            setUsers(data.results)
-        }catch (e) {
-            console.log("Error", e)
+
+        let controller = new AbortController()
+
+        const data = {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'aplication/json'
+            },
+            signal: controller.signal
+    
         }
+    
+            
+        fetch(`https://jsonplaceholder.typicode.com/users`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                setUsers(data)
+            })
+            .catch((e)=> {
+                console.log(e)
+            })
+            .finally(() => {
+                console.log("Terminó la promesa")
+                controller.abort() //cierra el puerto en nuestro backend (se cierra automáticamente a los 30 segundos)
+            })
+            
     }
+        
+        
     
     return (
         <div>
@@ -33,7 +56,6 @@ export const Users = ()=> {
             })}
 
         </div>
-
     )
     
 
