@@ -68,6 +68,12 @@ const Acordeon = ({ item }) => {
     const toggleAcordeon3 = () => {
       setInfoExtra(!infoExtra);
     };
+
+    const acordeonDatos = [
+      {id: 1, title: "Rasgos físicos"},
+      {id: 2, title: "Información dueño"},
+      {id:3, title: "Información extra"}
+    ]
   
     return (
       <div className="Acordeon">

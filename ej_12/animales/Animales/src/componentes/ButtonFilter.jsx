@@ -22,7 +22,7 @@ const ButtonFilter = ({ setFiltro }) => {
         ENCONTRADOS
       </button>
       <button className="ButtonFilter-btn-add">
-        <span class="material-symbols-outlined">add</span>
+        <span className="material-symbols-outlined">add</span>
       </button>
     </div>
   );
