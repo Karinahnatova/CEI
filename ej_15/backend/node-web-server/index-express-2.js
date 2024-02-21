@@ -4,6 +4,8 @@ const express = require("express"); //importarr via js la libreria express
 
 const app = express(); //creamos la variable app de express
 
+
+//enviar info despues de cumplir el timeout
 app.get("/ejemplo/a", (req, res, next)=> {
     console.log("La respuesta sera enviada luego del timeout");
     setTimeout(()=> {
@@ -31,7 +33,7 @@ app.get("/ejemplo/b", (req, res, next)=> {
 app.get("/ejemplo/c", (req, res, next)=> {
     console.log("la respuesta sera enviada una vez cumplida la promesa ")
 
-    new Promise((resolve, reject) => {
+    new Promise((resolve, reject) => { //2 metodos que recibe una Promise: resolve y reject: si lo logra: resolve y si falla, hay error: reject.
        setTimeout(()=> {
         console.log("timeout de 2 s")
         resolve()

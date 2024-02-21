@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express");// ponemos require("express") porque así lo importamos en en json ya que trabajamos con js, ponemos "type":"module" en json para que funcione (estamos usando commonJS)
 
 const app = express();
 console.clear();
@@ -16,7 +16,7 @@ app.get("/perfil", (req, res)=>{
 });
 
 //app.get: metodos de xpress para leer consultas, tambien podemos hacer post
-//LOS METODOS MAS COMUNES SON: GET (OBTENER INFO), POST(GUARDAR INFO), PUT(ACTUALIZAR INFO), DELETE(BORRAR INFO), OPTIONS(SETEAR INFO)
+//LOS METODOS MAS COMUNES SON: GET (OBTENER INFO, envia info a través de la url), POST(GUARDAR INFO,  crear elementos, formularios con mucha info), PUT(ACTUALIZAR INFO), DELETE(BORRAR INFO), OPTIONS(SETEAR INFO)
 
 app.get("/users", (req, res)=> {
     res.send("Seccion de ususarios con post")
@@ -24,7 +24,7 @@ app.get("/users", (req, res)=> {
 });
 
 
-// metodo all habilita cualquier metodo anterior
+// metodo all habilita cualquier metodo anterior get o post, los dos
 app.all("/metodos", (req, res)=> {
     res.send("<h3>soporta todos los metodos (POST, PUT, DELETE, GET)</h3>")
     console.log("El usuario realizo un all a metodos");
@@ -35,10 +35,10 @@ app.route("/Libros")
     res.send("Obtener libros")
 
 })
-.get((req, res) => {
+.post((req, res) => {
     res.send("Obtener un nuevo libro")
 
-}).get((req, res) => {
+}).put((req, res) => {
     res.send("Obtener libro x")
 
 })

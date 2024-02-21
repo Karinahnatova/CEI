@@ -9,7 +9,7 @@ console.clear()
 
 // Que sin los Middleware
 //- Son funciones que se ejecutan en medi de un proceso, en este caso en medio de la peticion y la respuesta.
-//- Siempre se ejecutan en el orden en el que se declaran.
+//- Siempre se ejecutan en el orden en el que se declaran. Si tienen declarado app.use, se ejecutarán todos, pero en orden, aunque vaya a diferente url, se ejecutará, ya que usamos app.use en cada middleware.
 //- Se pueden usar para validar datos, modificar o procesar la petición y la respuesta.
 
 function timeLog(req, res, next) {
