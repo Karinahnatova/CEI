@@ -34,10 +34,10 @@ export const getLibroById = (req,res)=> {
 
 
 export const removeLibro= (req, res) => {
-    console.log(req.params)
-    const {titulo, autor,categoria} = req.params
-    responseLibros.data.splice({titulo, autor,categoria})
-    responseLibros.msg="Has borrado el libro: " + libro
+    const idLibro = req.params.id
+    responseLibros.data = listaLibros.find((libro)=> libro.id == idLibro)
+    responseLibros.data.splice(idLibro, 1)
+    responseLibros.msg="Has borrado el librocon el ID: " + idLibro
     res.setHeader("Content-type", "application/json");
     res.send(responseLibros);
 
