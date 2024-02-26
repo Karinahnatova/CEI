@@ -24,7 +24,7 @@ export const getLibroById = (req,res)=> {
     console.log(req.params)
     responseLibros.data=listaLibros.find((libro)=> libro.id==idLibro)
     responseLibros.msg="Libro con id: " + idLibro
-    responseLibros.cant=responseLibros.data.length
+    // responseLibros.cant=responseLibros.data.length
     console.log("Libros por id")
     res.setHeader("Content-type", "application/json");
     res.send(responseLibros);
@@ -57,5 +57,16 @@ export const UpdateLibro= (req, res) => {
     responseLibros.msg= "Has actualizado el libro con exito"
     res.setHeader("Content-type", "application/json");
     res.send(responseLibros);
+    
+}
+
+export const getLibroByAutor = (req, res)=> {
+    res.setHeader("Content-type", "application/json");
+    const autor = req.params.auror
+    res.send(responseLibros);
+
+ 
+
+
     
 }

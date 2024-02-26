@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getLibroById, getAllLibros, addLibro, UpdateLibro, removeLibro } from "../controllers/libros.controller.js";
+import { getLibroById, getAllLibros, addLibro, UpdateLibro, removeLibro, getLibroByAutor } from "../controllers/libros.controller.js";
 
 
 
@@ -24,6 +24,8 @@ router.post("/libros", addLibro) //agregar nuevo libro
 router.delete("/libro/:id", removeLibro) //eliminar un libro
 
 router.put("/libro/:id", UpdateLibro) //actualizar un libro
+
+router.put("/libros/author/:author", getLibroByAutor) //buscar libro por autor
 
 
 //--------------------RUTAS DE AUTORES------------------------------------------------------

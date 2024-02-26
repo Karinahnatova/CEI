@@ -37,5 +37,16 @@ console.log(nombre)
 
 
 
-//
+//VITE
 //npm create vite@latest, react, javascript
+
+
+
+//EXPRESS
+//npm init
+//npm i
+//nom i express
+//npm i nodemon
+//npm i nodemon -D
+//npm I UUID -D
+//npm i cors
