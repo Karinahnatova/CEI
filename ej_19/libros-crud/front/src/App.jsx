@@ -1,5 +1,11 @@
 import './App.css'
 import {Routes, Route, Outlet, Link} from 'react-router-dom'
+import NotFound from './components/NotFound'
+import Home from './components/Home'
+import Navigation from './components/Navigation'
+import AuthorList from './components/AuthorList'
+import BookList from './components/BookList'
+import BookAdd from './components/BookAdd'
 
 function App() {
 
@@ -8,8 +14,11 @@ function App() {
      <Routes>
       <Route path="/" element= {<Lauyout/>}>
        <Route index element= {<Home/>}/>
-       <Route path="/lista" element= {<ListaDeLibros/>}/>
-       <Route path="/contacto" element= {<Contacto/>}/>
+       <Route path="/lista" element= {<BookList/>}/>
+       <Route path="/agregar" element= {<BookAdd/>}/>
+       <Route path="/autores" element= {<AuthorList/>}/>
+       <Route path="/*" element= {<NotFound/>}/>
+
       </Route>
      </Routes>
     </>
@@ -21,39 +30,14 @@ export default App
 function Lauyout() {
   return (
     <>
-    <h1>Header</h1>
-    <nav>
-      <ul>
-        <li><Link to="/">Bienvenida</Link></li>
-        <li><Link to="/lista">Lista de libros</Link></li>
-        <li><Link to="/contacto">Contacto</Link></li>
-
-
-      </ul>
-    </nav>
+    <Navigation/>
+    <div className='content'>
     <Outlet/> 
-    {/* el outlet renderiza el child que provenga del router */}
+    {/* el outlet renderiza el child que provenga del router, que las rtas hijos se cargan dentro de la plantilla del layout */}
+    </div>
+    <footer className='footer'>soy footer</footer>
     </>
-    
   )
 }
 
-function Home() {
-  return (
-    <h1>Nuestra libreria home</h1>
-  )
-}
-
-function ListaDeLibros() {
-  return (
-    <h1>Lista de libros</h1>
-  )
-}
-
-function Contacto() {
-  return (
-    <h1>Contacto</h1>
-  )
-}
-
-//npm i react -router-dom
+//npm i react-router-dom
