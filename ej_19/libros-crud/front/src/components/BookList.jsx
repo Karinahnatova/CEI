@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import BookForm from "./BookForm"
+import { easyFetch } from "../helpers/utils"
 
 
 function BookList() {
@@ -11,20 +12,27 @@ function BookList() {
   }, [])
 
   const fetchLibros = async() => {
-    try {
-      const url = "http://localhost:3000/API/v1/libros"
-      const response = await fetch(url)
-      if(!response.ok){
-        throw new Error('Error al obtener los libros')
+    // try {
+    //   const url = "http://localhost:3000/API/v1/libros"
+    //   const response = await fetch(url)
+    //   if(!response.ok){
+    //     throw new Error('Error al obtener los libros')
+    //   }
+    //   const jsonData = await response.json()
+
+    //   setBookList(jsonData.data)
+
+
+    // }catch (error) {
+    //   console.log("tuviste un error: " + error)
+    // }
+    
+    easyFetch({
+      url:"http://localhost:3000/API/v1/libros/",
+      callback: (jsonData) =>  {
+        setBookList(jsonData.data)
       }
-      const jsonData = await response.json()
-
-      setBookList(jsonData.data)
-
-
-    }catch (error) {
-      console.log("tuviste un error: " + error)
-    }
+    })
     
   }
 
@@ -52,7 +60,7 @@ function BookList() {
         }
 
       </div>
-      {editarLibro && <BookForm libro={editarLibro}/>}
+      {editarLibro && <BookForm libro={editarLibro} setEditarLibro={setEditarLibro}/>}
       </>
       
     )

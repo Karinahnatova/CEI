@@ -4,6 +4,7 @@ import { getAllLibros, getLibroById, createLibro, updateLibro, deleteLibro} from
 
 const router = Router();
 
+// app.use("/API/v1/", indexRoutes) : para obtener cualquier ruta, la empezamos así
 //todos los libros
 router.get("/libros", getAllLibros);
 

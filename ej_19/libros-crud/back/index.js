@@ -9,7 +9,7 @@ const app = express ()
 console.clear()
 
 //uso de midlewares
-app.use(cors())
+app.use(cors())//cross-origin resource sharing, permite acceder a cualquier dominio, es una libreria que importamos con npm i corse
 app.use(setHeaders)
 app.use(express.json()) //proesa el body para leerlo con req.boy
 app.use(logger)
