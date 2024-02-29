@@ -50,3 +50,10 @@ console.log(nombre)
 //npm i nodemon -D
 //npm I UUID -D
 //npm i cors
+
+//EXPRESS es un servidor web que complementa a node
+
+
+
+//npm i sqlite3
+//npm i sequelize: nos permite escriir más facil las consultas de db
