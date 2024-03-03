@@ -1,0 +1,52 @@
+.oswald {
+    font-family: "Oswald", sans-serif;
+
+}
+
+body {
+    background-color: rgba(198, 198, 198, 0.463);
+}
+
+.Products_img {
+    height: 8rem;
+}
+
+.Products_div_id {
+    width: 20rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.Products_div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.Products_title {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+.Products_li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+
+}
+.Products_li:nth-child(2) {
+    align-items: center;
+}
+.Products_li span {
+    font-weight: bold;
+}
+
+.Products_h1 {
+    width: 100%;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    color: rgb(52, 52, 52);
+}

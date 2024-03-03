@@ -1,0 +1,22 @@
+.Api_h1 {
+    font-family: "Oswald", sans-serif;
+}
+
+.Api_nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.Api_nav button {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    border: none;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 1px 1px 2px grey;
+}
