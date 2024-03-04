@@ -1,5 +1,6 @@
 import { response } from "express";
-import misDatos from "../db/datos.js";
+import misDatos from "../.db/datos";
+
 
 
 const listaLibros = misDatos.libros
@@ -11,9 +12,9 @@ const responseAPI = {
     status: "ok"
 }
 
-export const getAllLibros = (req, res) => {
-    responseAPI.data= listaLibros;
-    responseAPI.msg= "Obtener libros";
+export const getAllLibros = async(req, res) => {
+    responseAPI.data= await Libros.findAll()
+    responseAPI.msg= "Obtener libros"
     responseAPI.status="ok"
     res.status(200).send(responseAPI)
 

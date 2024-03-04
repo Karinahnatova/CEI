@@ -4,6 +4,7 @@ import { logger } from "./middlewares/logger.js";
 import { setHeaders } from "./middlewares/setHeaders.js";
 import cors from 'cors'
 
+
 const app = express ()
 console.clear()
 
@@ -24,14 +25,34 @@ const sequelize = new Sequelize({
 })
 
 //definir modelos (tablas)
-const Datos= sequelize.define('libros', {
+// const Datos= sequelize.define('libros', {
+//     titulo: DataTypes.STRING,
+//     autor: DataTypes.STRING, 
+//     categoria: DataTypes.STRING
+// })
+
+const Libros = sequelize.define('libros', {
     titulo: DataTypes.STRING,
-    autor: DataTypes.STRING, 
+    autorId: DataTypes.INTEGER
+})
+
+const Autores= sequelize.define('autores', {
+    nombre: DataTypes.STRING,
+    cantLibros: DataTypes.INTEGER
+})
+
+const Categoria_libro= sequelize.define('categoria_libro', {
+    categoriaId: DataTypes.INTEGER,
+    libroId: DataTypes.INTEGER
+})
+
+const Categorias= sequelize.define('categorias', {
     categoria: DataTypes.STRING
 })
 
 //sincronizar mis modelos con mi db(cear tablas en caso de que no existan) //sqlite viewer extension
-sequelize.sync({alter:true}) //o alter:true
+//force true: elimina y recrea todas las talas en cada reinicio
+sequelize.sync({alter:true}) //o alter:true, actualiza las columnas sin borrarlas
 
 
 app.get("/", (req, res) => {
@@ -65,10 +86,11 @@ app.put("/libros/:id", async (req, res) => {
 })
 
 app.delete("/libros/:id", async (req, res) => {
-    const libro= await Datos.findByPk(req.params.id)
+    const libro= await Datos.findByPk(req.params.id) //buscar por primary key
     if(libro) {
+        const libroViejo = libro //guardamos en una contsante de libro viejo para no perder completamente el libro al borrarlo
         await libro.destroy()
-        res.json({msg: "libro eliminado correctamente"})
+        res.json({msg: "libro eliminado correctamente", data:libroViejo})
 
     }else {
         res.status(404).json({msg: "usuario no encontrado"})

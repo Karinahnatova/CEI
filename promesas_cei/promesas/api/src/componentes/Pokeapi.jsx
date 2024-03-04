@@ -22,7 +22,7 @@ const Pokemons = ()=> {
             signal: controller.signal
         }
 
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=20&offset=0')
+        fetch('https://pokeapi.co/api/v2/pokemon/ditto')
             .then(respone => respone.json())
             .then(data => {
                 console.log(data)
@@ -38,15 +38,30 @@ const Pokemons = ()=> {
     }
 
     return (
+        <>
         <div>
             <h1>POKEAPI</h1>
-            {pokemons.map((pokemon, index) => {
-                return (
-                    <p>{pokemon.name}</p>
-                )
+            
+            {ability.map((item) => {
+                return <Ability key={item.id} {...item}/>
             })}
         </div>
+        </>
+        
        
+    )
+
+}
+
+const Ability = (props) => {
+    const {name, url} = props
+    return(
+        <>
+        <ul>
+            <li>{name}</li>
+            <li><img src={url} alt="" /></li>
+        </ul>
+        </>
     )
 
 }
