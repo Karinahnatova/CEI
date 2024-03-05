@@ -31,19 +31,19 @@ const sequelize = new Sequelize({
 //     categoria: DataTypes.STRING
 // })
 
-const Libros = sequelize.define('libros', {
-    titulo: DataTypes.STRING,
-    autorId: DataTypes.INTEGER
+const libros = sequelize.define('libros', {
+    libro: DataTypes.STRING,
+    id_autor: DataTypes.INTEGER
 })
 
 const Autores= sequelize.define('autores', {
-    nombre: DataTypes.STRING,
-    cantLibros: DataTypes.INTEGER
+    autor: DataTypes.STRING,
+    cant_libros: DataTypes.INTEGER
 })
 
-const Categoria_libro= sequelize.define('categoria_libro', {
-    categoriaId: DataTypes.INTEGER,
-    libroId: DataTypes.INTEGER
+const categoria_libro= sequelize.define('categoria_libro', {
+    id_categoria: DataTypes.INTEGER,
+    id_libro: DataTypes.INTEGER
 })
 
 const Categorias= sequelize.define('categorias', {

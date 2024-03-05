@@ -57,3 +57,9 @@ console.log(nombre)
 
 //npm i sqlite3
 //npm i sequelize: nos permite escriir más facil las consultas de db
+
+
+//data base extensions: 
+//xampp: extensión para base de datos
+//sqlite
+//thunderclient
