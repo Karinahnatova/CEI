@@ -63,3 +63,6 @@ console.log(nombre)
 //xampp: extensión para base de datos
 //sqlite
 //thunderclient
+
+//SQL2
+//npm i mysql2
