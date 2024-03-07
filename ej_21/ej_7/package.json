@@ -12,7 +12,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon actividad_7.js",
+    "dev": "nodemon actividad_7.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

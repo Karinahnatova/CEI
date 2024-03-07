@@ -1,4 +1,3 @@
-
 import { timelog } from "./middlewares/logger.js";
 import express from "express";
 import {PORT, domain} from "./config.js";

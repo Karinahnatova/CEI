@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getLibroById, getAllLibros, addLibro, UpdateLibro, removeLibro, getLibroByAutor } from "../controllers/libros.controller.js";
+import { getAllAuthors, getAuthorById } from "../controllers/autores.cotroller.js";
 
 const router = Router()
 
@@ -24,32 +25,11 @@ router.put("/libros/author/:author", getLibroByAutor)
 
 //--------------------RUTAS DE AUTORES------------------------------------------------------
 
-router.get("/libros/author/:author", (req, res)=> {
-    const author = helperCleanString(req.params.author) //para que la busqyeda funcione poniendo el nombre en minusculas, sacamos los espacios, minuscula, lo limpiamos
-    responseLibros.data=listaLibros.filter((libro)=> helperCleanString(libro.autor).includes(author)) //cuando quiero que la frase e tera incluye un pedacito de frase, se incluye la frase
-    responseLibros.msg= "buscando autores con string: " + author
-    responseLibros.cant=responseLibros.data.length
-    res.setHeader("Content-type", "application/json");
-    res.send(responseLibros);
-});
+router.get("/authors", getAllAuthors)
 
-router.get("/authors", (req,res) => {
-    responseLibros.data = listaLibros.map((libro)=> libro.autor)
-    res.setHeader("Content-type", "application/json");
-    res.send(responseLibros);
+router.get("/author/:author", getAuthorById)
 
-   const uniqueAuthors = []
-   responseLibros.data.forEach((autor)=> {
-    if (!uniqueAuthors.includes(autor)) {
-        uniqueAuthors.push(autor)
-    }
+router.post("/")
 
-    //otra froma de hacerlo:
-    // responseLibros.data = [...new Set(responseLibros.data)]  //usando spread y Set
-})
-
-responseLibros.data=uniqueAuthors
-
-})
 
 export default router
