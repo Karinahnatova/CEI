@@ -1,0 +1,66 @@
+body {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.Div01_contenedor {
+    background-color: rgba(0, 122, 255, 1);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 5rem;
+
+}
+
+.Div01_ico {
+    width: 80px;
+    border-radius: 1.3rem;
+}
+
+.Div01_h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 47px;
+    font-weight: bold;
+    color: white;
+}
+
+.Div01_p {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+}
+
+.Div01_btn_img{
+    width: 186px;
+    margin-top: -2rem;
+}
+
+.Div01_img {
+    height: 600px;
+    
+}
+
+.Div01_section {
+    width: 35%;
+    padding: 5rem;
+    
+}
+
+.Div01_hero {
+    height: 600px;
+}
+

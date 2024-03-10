@@ -7,7 +7,7 @@ const Pokemons = ()=> {
     const [pokemons, setPokemons] = useState([])
     useEffect(()=> {
         fetchPokemons()
-    })
+    }, [])
 
     const fetchPokemons = async() => {
 
@@ -17,16 +17,16 @@ const Pokemons = ()=> {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'Content-Type':'aplication/json'
+                'Content-Type':'application/json'
             },
             signal: controller.signal
         }
 
-        fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        fetch('https://pokeapi.co/api/v2/pokemon/?results=20')
             .then(respone => respone.json())
             .then(data => {
                 console.log(data)
-                setPokemons(data)
+                setPokemons(data.results)
             })
             .catch((e)=> {
                 console.log(e)
@@ -39,11 +39,14 @@ const Pokemons = ()=> {
 
     return (
         <>
+        <h1>POKEAPI</h1>
         <div>
-            <h1>POKEAPI</h1>
-            
-            {ability.map((item) => {
-                return <Ability key={item.id} {...item}/>
+            {pokemons.map((pokemon, i) => {
+                return (
+                    <>
+                    <Card key={i} pokemon={pokemon}/>
+                    </>
+                )
             })}
         </div>
         </>
@@ -53,18 +56,19 @@ const Pokemons = ()=> {
 
 }
 
-const Ability = (props) => {
-    const {name, url} = props
-    return(
-        <>
-        <ul>
-            <li>{name}</li>
-            <li><img src={url} alt="" /></li>
-        </ul>
-        </>
-    )
+const Card = ({pokemon})=> {
+    return (
+        <div>
+            <div>
+                <h2>{pokemon.name}</h2>
+            
+            </div>
 
+        </div>
+    )
 }
+
+
 
 
 export default Pokemons

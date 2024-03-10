@@ -15,7 +15,7 @@ const Products =()=> {
             method: 'GET',
             mode: 'cors',
             headers: {
-                'Content-Type':'aplication/json'
+                'Content-Type':'application/json'
             },
             signal: controller.signal
         }

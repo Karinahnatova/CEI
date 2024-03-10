@@ -1,0 +1,39 @@
+.Div05_contenedor {
+    background-color: rgba(112, 0, 255, 1);
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+}
+
+.Div05_ico {
+    width: 48px;
+}
+
+
+.Div05_h3 {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.Div05_p {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Roboto", sans-serif;
+    font-weight: 100;
+    font-size: 24px;
+}
+
+.Div05_img {
+    height: 600px;
+}
+
+.Div05_hero {
+    height: 600px;
+}
+
+.Div05_section {
+    width: 38%;
+    padding: 5rem;
+}
