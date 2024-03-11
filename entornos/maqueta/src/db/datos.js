@@ -5,7 +5,7 @@ export const datos = {
     div01: {
         ico: {
            
-            src: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/35/74/c0/3574c0be-abf9-59b3-5fe2-f98857d763d4/AppIcon-0-1x_U007emarketing-0-10-0-85-220.png/246x0w.webp",
+            src: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/35/74/c0/3574c0be-abf9-59b3-5fe2-f98857d763d4/AppIcon-0-1x_U007emarketing-0-10-0-85-220.png/1200x630wa.png",
             text: "ico triage app"
         },
         h1: {
@@ -18,7 +18,7 @@ export const datos = {
         },
         button: {
         
-            src: "https://freeiconshop.com/wp-content/uploads/edd/app-store-badge.png",
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png",
             text: "download on the App Store",
             url: "https://www.apple.com/es/app-store/"
         },
@@ -35,7 +35,7 @@ export const datos = {
             text: "img phone triage app"
         },
         ico: {
-            src: "https://cdn.icon-icons.com/icons2/1919/PNG/512/leftarrowinsideacircle_122022.png",
+            src: "https://cdn-icons-png.flaticon.com/512/109/109618.png",
             text: "left arrow"
         },
         h3: {

@@ -66,3 +66,9 @@ console.log(nombre)
 
 //SQL2
 //npm i mysql2
+
+//splash web de fotos gratis
+//bing copilot: ai
+
+//app eraser: https://app.eraser.io/workspace/jZz7uowLc4l5fG2f4hsU
+//https://app.eraser.io/workspace/Ab057Gr4HTl2lEdwlPLm
