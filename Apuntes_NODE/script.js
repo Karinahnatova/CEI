@@ -72,3 +72,8 @@ console.log(nombre)
 
 //app eraser: https://app.eraser.io/workspace/jZz7uowLc4l5fG2f4hsU
 //https://app.eraser.io/workspace/Ab057Gr4HTl2lEdwlPLm
+
+//iloveimg
+//tinypng
+
+//subir las imagenes a assets, siempre comprimidas, se usa la etiqueta picture, no img
