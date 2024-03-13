@@ -6,15 +6,12 @@ const Usuario = () => {
 
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
+    const navigate = useNavigate()
 
-    const navegador = useNavigate
-
-
-    useEffect(()=> {
-        fetchUsers()
-    })
-
-    const fetchUsers = async () => {
+    const handleSubmit = (e) => {
+        e.preventDefault() //previene de que no cargue la página, que no se enví el formulario
+        console.log("enviando el formulario con react")
+        
         easyFetch({
             url: "http://localhost:3000/API/v1/usuario/",
             method: 'POST',
@@ -22,23 +19,25 @@ const Usuario = () => {
             callback: (jsonData) => {
                 setUser(jsonData.data)
                 setPass(jsonData.data)
+
+                navigate('/home')
             }
         })
+
     }
 
     return(
         <>
         <h2>LOGGIN</h2>
-        {/* onSubmit={handleSubmit} style={formStyle} */}
-        <form >
+        <form onSubmit={handleSubmit}>
             <label htmlFor="nombre">Nombre</label>
-            <input type="text" name="nombre" id="nombre" placeholder="Ingresa tú nombre"/>
-    
+            <input type="text" value={user} onChange={(e)=> setUser(e.target.value)} name="nombre" id="nombre" placeholder="Ingresa tú nombre"/>
             <br />
             <label htmlFor="nombre">Contraseña</label>
-            <input type="password" name="contraseña" id="contraseña" placeholder="Ingresa tú contraseña"/>
+            <input type="password" value={pass} onChange={(e)=> setPass(e.target.value)} name="contraseña" id="contraseña" placeholder="Ingresa tú contraseña"/>
+            <button type="submit">ENTRAR</button>
         </form>
-        <button>ENTRAR</button>
+
         
         </>
     )
