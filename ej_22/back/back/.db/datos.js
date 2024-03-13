@@ -21,7 +21,27 @@ const misDatos =
     }
     ],
     "autores": [],
-    "usuarios": []
+
+    "usuarios": [
+     {
+          "id": 1,
+          "nombre": "Karina",
+          "contraseña": "12345",
+          "correo": "karina@gmail.com"
+     },
+     {
+          "id": 2,
+          "nombre": "Laura",
+          "contraseña": "22222",
+          "correo": "laura@gmail.com"
+     },
+     {
+          "id": 3,
+          "nombre": "Marta",
+          "contraseña": "66778",
+          "correo": "marta@gmail.com"
+     }
+    ]
 }
 
 export default misDatos

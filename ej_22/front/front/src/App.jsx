@@ -6,6 +6,7 @@ import Navigation from './components/Navigation'
 import AuthorList from './components/AuthorList'
 import BookList from './components/BookList'
 import BookAdd from './components/BookAdd'
+import Usuario from './components/Usuario'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
        <Route path="/lista" element= {<BookList/>}/>
        <Route path="/agregar" element= {<BookAdd/>}/>
        <Route path="/autores" element= {<AuthorList/>}/>
+       <Route path="/login" element= {<Usuario/>}/>
        <Route path="/*" element= {<NotFound/>}/>
 
       </Route>

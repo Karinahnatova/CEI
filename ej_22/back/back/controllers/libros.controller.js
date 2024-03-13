@@ -1,76 +1,113 @@
-import { response } from "express";
-import misDatos from "../.db/datos";
+import { response } from 'express'
+import mysql from 'mysql2/promise'
 
-
-
-const listaLibros = misDatos.libros
-
-//crear formato de respuesta
-const responseAPI = {
-    data: listaLibros,
-    msg: "",
-    status: "ok"
+const responseLibros = {
+    data: [],
+    msg:"",
+ 
 }
 
-export const getAllLibros = async(req, res) => {
-    responseAPI.data= await Libros.findAll()
-    responseAPI.msg= "Obtener libros"
-    responseAPI.status="ok"
-    res.status(200).send(responseAPI)
+export const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'libros'
+})
+
+export const getAllLibros = async(req,res)=> {
+    const [results, fields] = await connection.query(sql)
+    const sql = 'SELECT * FROM autores LEFT JOIN libro ON (libro.id_autor = autores.id)' //lo guardamos en una constante porque cada vez nuestras consultas serán más complejas
+    responseLibros.data = results
+    responseLibros.msg = "Todos los libros"
+    responseLibros.cant = results.length
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
 
 }
-export const getLibroById = (req, res) => {
-    responseAPI.data= "";
-    responseAPI.msg= "Obtener libros";
-    responseAPI.status="ok"
-    res.status(200).send(responseAPI)
 
-}
-export const createLibro = (req, res) => {
-    const {titulo, autor, categoria} = req.body
-    const newId= Math.random()
-    listaLibros.push({id: newId, titulo, autor, categoria})
-    responseAPI.data= listaLibros;
-    responseAPI.msg= "Crear nuevo libro";
-    responseAPI.status="ok"
-    res.status(200).send(responseAPI)
-
-}
-export const updateLibro = (req, res) => {
-    //1-recibir datos del body
-    // console.log(req.body) //aqui sacamos los datos de la url
-    const {id, titulo, autor, categoria} = req.body //aqui sacamos los datos del body del json
-    //2-obtener de la lista de libros el liro que quiera editar, segun el id
-    const index = listaLibros.findIndex(libro=> libro.id == id) //index es la poscicion del array 1, el libro de george orwell
-    //3-actualizar el libro con los nuevos valores
-    listaLibros[index] = {
-        ...listaLibros[index],
-        titulo,
-        autor,
-        categoria
-    }
-
-
-    //respondo con la nueva lista de libros actualizada
-    responseAPI.data= listaLibros;
-    responseAPI.msg= "Obtener libros";
-    responseAPI.status="ok"
-    res.status(200).send(responseAPI)
-
-}
-export const deleteLibro = (req, res) => {
-    console.clear()
-
-    //obtener el id de la url (no del body) ej: http://dominio.com/endpoint/:id
+export const getLibroById = async(req,res)=> {
     const idLibro = req.params.id
-    //devuelve -1 en caso de no encontrar el elemento de la lista
-    const index = listaLibros.findIndex(libro => libro.id === idLibro)
-
-    //eliminar el item del array:
-    responseAPI.data=listaLibros[index]
-    listaLibros.splice(index, 1) //eliminar un item desde el indice
-
-    responseAPI.msg= "libro eliminado"
-    res.status(200).send(responseAPI)
+    const [results, fields] = await connection.query(sql)
+    const sql = 'SELECT * FROM libro WHERE id =' + idLibro
+    responseLibros.data = results
+    responseLibros.msg="Libro con id: " + idLibro
+    console.log("Libros por id")
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
 
 }
+
+export const removeLibro= async(req, res) => {
+    const idLibro = req.params.id
+    const [results, fields] = await connection.query(sql)
+    const sql = 'DELETE FROM libro WHERE id = ' + idLibro
+    responseLibros.data = results[index]
+    responseLibros.data.splice(index, 1)
+    responseLibros.msg="Has borrado el librocon el ID: " + idLibro
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
+
+}
+
+export const addLibro= async(req, res) => {
+    const [results, fields] = await connection.query(sql)
+    const {libro, id_autor=0, calificación=0, lanzamiento="", editorial="", precio=0, cant_vendidos=0, num_paginas=0, created_at=0, updated_at=0, deleted_at=0} = req.body
+    const sql = `INSERT INTO libro (libro, id_autor, calificación, lanzamiento, editorial, precio, cant_vendidos, num_paginas, created_at, updated_at, deleted_at) VALUES ('${libro}', '${id_autor}', '${calificación}', '${lanzamiento}', '${editorial}',  '${precio}', '${cant_vendidos}', '${num_paginas}', '${created_at}', '${updated_at}', '${deleted_at}')`
+    responseLibros.data = results
+    responseLibros.msg= "Crear nuevo libro"
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros)
+    
+}
+
+export const UpdateLibro= async(req, res) => {
+    const idLibro = req.params.id
+    const [results, fields] = await connection.query(sql)
+    const {libro, id_autor=0, calificación=0, lanzamiento="", editorial="", precio=0, cant_vendidos=0, num_paginas=0, created_at=0, updated_at=0, deleted_at=0} = req.body
+    const sql = `UPDATE libro SET id='[value-1]',libro='[value-2]',id_autor='[value-3]',calificación='[value-4]',lanzamiento='[value-5]',editorial='[value-6]',precio='[value-7]',cant_vendidos='[value-8]',num_paginas='[value-9]',created_at='[value-10]',updated_at='[value-11]',deleted_at='[value-12]' WHERE id = ` + idLibro `VALUES ('${libro}', '${id_autor}', '${calificación}', '${lanzamiento}', '${editorial}',  '${precio}', '${cant_vendidos}', '${num_paginas}', '${created_at}', '${updated_at}', '${deleted_at}')`
+    responseLibros.data= results
+    responseLibros.msg= "Has actualizado el libro con exito"
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
+    
+}
+
+export const getLibroByAutor = async(req, res)=> {
+    const autor = req.params.autores
+    const [results, fields] = await connection.query(sql)
+    const sql = 'SELECT * FROM libro WHERE id_autor = ' + autor
+    response.data= results
+    responseLibros.msg="Libro con autor: " + autor
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
+
+}
+
+export const getUsuario = async(req, res)=> {
+    const usuario = req.params.usuario
+    const [results, fields] = await connection.query(sql)
+    const sql = 'SELECT * FROM usuario'
+    response.data= results
+    responseLibros.msg= "Usuario: " + usuario
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
+
+}
+
+export const getUsuarioById = async(req, res)=> {
+    const id_usuario = req.params.id
+    const [results, fields] = await connection.query(sql)
+    const sql = 'SELECT * FROM usuario WHERE id = ' + id_usuario
+    response.data= results
+    responseLibros.msg= "Usuario con el id: " + id_usuario
+    res.setHeader("Content-type", "application/json");
+    res.send(responseLibros);
+
+}
+
+
+
+
+
+
+//UNIR TABLAS, DE CATEGORIAS
+// SELECT categorias.categoria FROM categorias JOIN link_libro_categorias ON (link_libro_categorias.id_categoria = categorias.id)
