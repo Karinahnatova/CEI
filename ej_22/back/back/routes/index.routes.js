@@ -1,6 +1,5 @@
 import { Router } from "express";
-import { getLibroById, getAllLibros, addLibro, UpdateLibro, removeLibro, getLibroByAutor, getUsuario, getUsuarioById } from "../controllers/libros.controller.js";
-// import { getAllAuthors, getAuthorById } from "../controllers/autores.cotroller.js";
+import { getLibroById, getAllLibros, addLibro, UpdateLibro, removeLibro, getLibroByAutor, getUsuario, getUsuarioById, loginUser, loginUserCrypted } from "../controllers/libros.controller.js";
 
 const router = Router()
 
@@ -34,7 +33,14 @@ router.put("/libros/author/:author", getLibroByAutor)
 //----------RUTA DE USUARIOS---------------------------------
 
 router.get("/usuario", getUsuario)
-router.get("/usuario", getUsuarioById)
+router.get("/usuario/:id", getUsuarioById)
+router.get("/usuario", loginUser)
+router.get("/usuario", loginUserCrypted)
+
+
+
+
+
 
 
 

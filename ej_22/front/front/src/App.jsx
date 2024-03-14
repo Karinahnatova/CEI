@@ -1,12 +1,20 @@
 import './App.css'
 import {Routes, Route, Outlet, Link} from 'react-router-dom'
-import NotFound from './components/NotFound'
-import Home from './components/Home'
-import Navigation from './components/Navigation'
-import AuthorList from './components/AuthorList'
-import BookList from './components/BookList'
-import BookAdd from './components/BookAdd'
-import Usuario from './components/Usuario'
+import Lauyout from './pages/Login/Layout'
+
+//meter los componentes por carpetas y renombrarlos a index
+//paginas
+import AuthorList from './pages/AuthorList/AuthorList'
+import BookList from './pages/BookList/BookList'
+import Home from './pages/Home/Home'
+import Usuario from './pages/Usuario/Usuario'
+import BookAdd from './pages/BookAdd'
+import NotFound from './pages/NotFound'
+
+
+
+//paginas
+
 
 function App() {
 
@@ -28,18 +36,5 @@ function App() {
 }
 
 export default App
-
-function Lauyout() {
-  return (
-    <>
-    <Navigation/>
-    <div className='content'>
-    <Outlet/> 
-    {/* el outlet renderiza el child que provenga del router, que las rtas hijos se cargan dentro de la plantilla del layout */}
-    </div>
-    <footer className='footer'>soy footer</footer>
-    </>
-  )
-}
 
 //npm i react-router-dom

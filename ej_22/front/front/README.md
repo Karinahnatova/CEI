@@ -1,8 +1,25 @@
-# React + Vite
+# ej_22
+-aquí estamos haciendo un loggin de ususarios y las variables de entorno
+-incluimos la libreria dotenv para incluir variables de entono
+-utilizamos bcript para encriptar claves
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# utilizar alias @ en vez de ../../../components
+editar en vita.config.js
 
-Currently, two official plugins are available:
+```js
+//uso de path para el alias
+import path from 'path'
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+
+  //alias para los imports
+  resolve: {
+  alias: {
+    '@': path.resolve(__dirname, 'src')
+  }
+  }
+})
+
+```

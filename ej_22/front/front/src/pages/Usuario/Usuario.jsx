@@ -1,6 +1,12 @@
+//meter los componentes si son paginas, en una carpeta de pages
+//se pude hacer un use context de un interruptor de tema ligth o dark
 import { useState, useEffect } from "react"
-import { easyFetch } from "../helpers/utils"
+import { easyFetch } from "../../helpers/utils"
 import { useNavigate } from "react-router-dom"
+
+
+//podemos obtener un vite hostname
+const {VITE_NAME, VITE_MODE, VITE_BACKEND_URL} = import.meta.env
 
 const Usuario = () => {
 
@@ -13,14 +19,16 @@ const Usuario = () => {
         console.log("enviando el formulario con react")
         
         easyFetch({
-            url: "http://localhost:3000/API/v1/usuario/",
+            url: `${VITE_BACKEND_URL}/API/v1/usuario`,
             method: 'POST',
             body: JSON.stringify({user: user, pass: pass}),
-            callback: (jsonData) => {
-                setUser(jsonData.data)
-                setPass(jsonData.data)
-
-                navigate('/home')
+            callback: (data) => {
+                console.log("has entrado con éxito", data)
+                if (data.succes) {
+                    navigate("/lista")
+                } else {
+                    alert("datos invalidos" + data.msg)
+                }
             }
         })
 
@@ -35,8 +43,9 @@ const Usuario = () => {
             <br />
             <label htmlFor="nombre">Contraseña</label>
             <input type="password" value={pass} onChange={(e)=> setPass(e.target.value)} name="contraseña" id="contraseña" placeholder="Ingresa tú contraseña"/>
-            <button type="submit">ENTRAR</button>
+            
         </form>
+        <button onClick={handleSubmit}>ENTRAR</button>
 
         
         </>
