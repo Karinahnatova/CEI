@@ -1,31 +1,30 @@
 import { useState, useEffect } from "react"
 import BookForm from "../../components/BookForm"
 import { easyFetch } from "../../helpers/utils"
+import { AuthContext } from "../Login/Layout"
+import { useNavigate } from "react-router-dom"
 
 
 function BookList() {
+
   const [bookList, setBookList] = useState([])
   const [editarLibro, setEditarLibro] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext)
+
+
   useEffect(()=> {
     fetchLibros()
 
-  }, [])
+  }, [editarLibro])
 
   const fetchLibros = async() => {
-    // try {
-    //   const url = "http://localhost:3000/API/v1/libros"
-    //   const response = await fetch(url)
-    //   if(!response.ok){
-    //     throw new Error('Error al obtener los libros')
-    //   }
-    //   const jsonData = await response.json()
 
-    //   setBookList(jsonData.data)
+    const navigate = useNavigate()
 
-
-    // }catch (error) {
-    //   console.log("tuviste un error: " + error)
-    // }
+    if(!isLoggedIn){
+      navigate("./login") 
+    }
+    
     
     easyFetch({
       url:"http://localhost:3000/API/v1/libros/",
