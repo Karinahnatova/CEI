@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../pages/Login/Layout";
-import { useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { easyFetch } from "../../helpers/utils";
 
 
 //obtenemos el hostname para los fetch
-const {VITE_NAME, VITE_MODE, VITE_BACKEND_URL}= import.meta.env
+const {VITE_NAME, VITE_MODE, VITE_BACKEND_URL}= import.meta.env;
 
 function LoginForm() {
-    const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext)
+    const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
 
     const [user, setUser] = useState("")
     const [pass, setPass] = useState("")
@@ -20,9 +19,9 @@ function LoginForm() {
         e.preventDefault() //previene de que no cargue la página, que no se enví el formulario
         
         easyFetch({
-            url: `${VITE_BACKEND_URL}/login`,
+            url: `${VITE_BACKEND_URL}/auth/login`,
             method: 'POST',
-            body: JSON.stringify({user: user, pass: pass}),
+            body: ({user: user, pass: pass}),
             callback: (data) => {
                 console.log("Exito logedin", data)
 
@@ -56,6 +55,7 @@ function LoginForm() {
             value={pass} 
             placeholder="Ingrese su clave"
             onChange={(e)=> setPass(e.target.value)}/>
+            <input type="submit" value="enviar" />
         </form>
         <button onClick={()=> {setIsLoggedIn(!isLoggedIn)}}>Change Login</button>
 

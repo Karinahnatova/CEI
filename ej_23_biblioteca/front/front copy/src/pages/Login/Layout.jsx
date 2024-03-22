@@ -4,7 +4,7 @@ import { useState, createContext } from 'react'
 
 export const AuthContext = createContext()
 
-function Lauyout() {
+function Layout() {
 
   const [isLoggedIn, setIsLoggedIn]= useState(false)
   console.log("isLoggedIn",isLoggedIn)
@@ -23,4 +23,4 @@ function Lauyout() {
     );
 }
 
-export default Lauyout
+export default Layout

@@ -14,34 +14,14 @@ export const connection = await mysql.createConnection({
     database: database
 })
 
-export const getUsuario = async(req, res)=> {
-    const usuario = req.params.usuario
-    const [results, fields] = await connection.query(sql)
-    const sql = 'SELECT * FROM `usuario`'
-    response.data= results
-    responseLibros.msg= "Usuario: " + usuario
-    res.setHeader("Content-type", "application/json");
-    res.send(responseLibros);
-
-}
-
-export const getUsuarioById = async(req, res)=> {
-    const id_usuario = req.params.id
-    const [results, fields] = await connection.query(sql)
-    const sql = 'SELECT * FROM usuario WHERE id = ' + id_usuario
-    response.data= results
-    responseLibros.msg= "Usuario con el id: " + id_usuario
-    res.setHeader("Content-type", "application/json");
-    res.send(responseLibros);
-
-}
-
 export const loginUser = async(req, res)=> {
-    const {nombre, contraseña} = req.body
-    const consulta = "SELECT * FROM `usuario` WHERE `nombre` = ? AND `contraseña` = ? AND `created_at` IS NULL "
-    const params = [nombre, contraseña]
-    response.data= results
-    const [results, fields] = await connection.query(sql)
+    const {user, pass} = req.body
+    const consulta = "SELECT * FROM `usuario` WHERE `nombre` = ? AND `password` = ? ;"
+    const params = [user, pass]
+    const [results, fields] = await connection.query(consulta, params)
+    delete results.password;
+    responseLibros.data= results
+    responseLibros.msg= "usuario obtenido"
     res.setHeader("Content-type", "application/json");
     res.send(responseLibros);
 }
