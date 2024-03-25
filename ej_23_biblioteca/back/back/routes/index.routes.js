@@ -8,7 +8,7 @@ const router = Router()
 
 // const upload = multer({dest: 'uploads/'})
 
-
+//mover multer a middlewares
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'uploads')
@@ -43,17 +43,17 @@ router.get("/datosLibros", (req, res)=> {
     res.send(datosLibros); 
 });
 
-router.get("/libros", getAllLibros)
+router.get(     "/libros", getAllLibros)
 
-router.get("/libros/:id", getLibroById)
+router.get(     "/libros/:id", getLibroById)
 
-router.post("/libros", addLibro)
+router.post(    "/libros", addLibro)
 
-router.delete("/libro/:id", removeLibro)
+router.delete(  "/libro/:id", removeLibro)
 
-router.put("/libro/:id", UpdateLibro)
+router.put(     "/libro/:id", UpdateLibro)
 
-router.put("/libros/author/:author", getLibroByAutor)
+router.put(     "/libros/author/:author", getLibroByAutor)
 
 //--------------------RUTAS DE AUTORES------------------------------------------------------
 

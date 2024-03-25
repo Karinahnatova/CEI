@@ -77,3 +77,9 @@ console.log(nombre)
 //tinypng
 
 //subir las imagenes a assets, siempre comprimidas, se usa la etiqueta picture, no img
+
+//no subir las variables de entorno de .env en github, subirlo con gitignore e incluilas en un pdf
+
+
+
+//mpm init, cambiar tupe, script, npm i cors, express module, npm i nodemon -D

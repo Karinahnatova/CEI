@@ -11,6 +11,7 @@ console.clear();
 
 app.use(cors())
 app.use(timelog)
+//app.use("", express.static('uploads'))
 app.use(express.json())
 app.use("/API/v1/", router)
 app.get("/", (req, res)=> {

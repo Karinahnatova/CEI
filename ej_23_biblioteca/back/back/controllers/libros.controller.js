@@ -15,7 +15,10 @@ export const connection = await mysql.createConnection({
     database: database
 })
 
+//implementar el try catch
 export const getAllLibros = async(req,res)=> {
+    
+    try{
     const [results, fields] = await connection.query(sql)
     const sql = 'SELECT * FROM autores LEFT JOIN libro ON (libro.id_autor = autores.id)' //lo guardamos en una constante porque cada vez nuestras consultas serán más complejas
     responseLibros.data = results
@@ -23,6 +26,11 @@ export const getAllLibros = async(req,res)=> {
     responseLibros.cant = results.length
     res.setHeader("Content-type", "application/json");
     res.send(responseLibros);
+
+    }catch (error) {
+        // next(error) //esta en el middleware de errores y poner el next en (req, res, next)
+        res.status(400).send(responseLibros)
+    }
 
 }
 
