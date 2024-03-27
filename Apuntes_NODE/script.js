@@ -83,3 +83,52 @@ console.log(nombre)
 
 
 //mpm init, cambiar tupe, script, npm i cors, express module, npm i nodemon -D
+
+
+//--------------❤️-----------EXPRESIONES REGUALERS REGEX--------------❤️-----------------------
+
+//En vez de usar "" las regex usan // : /ejemplo/
+//const regex1 = /juan/
+//const texto = "Mi nombre es Juan"
+
+//Flags: 
+//const regex1 = /juan/g   : obtiene todos los resutados (global)
+//const regex1 = /juan/i   : no diferencia las mayusculas de minusculas (case intensive)
+//const regex1 = /juan/m   : es para buscar multiples lineas (multiline)
+//const regex1 = /juan/gim : son combinables
+//(se pueden poner en cualquier orden)
+
+//Metacaracteres $, ^, /w, /s
+//const regex6  = /^juan/gm       : busca mi string al principio de cada linea 
+//const regex7  = /juan$/gm       : busca mi string al final de cada linea
+//const regex8  = /ju.an/gm       : ju seguido de cualquier caracter seguido de "n"
+//const regex9  = /\w/gm          : devuelve cualquier caracter alfanumerico (letras y numeros)
+//const regex10 = /\w{3, 5}/gm    : buscar todas las cadenas alfanumericas de todos los caracteres, si ponemos 3, busca cualquier palabra que tenga 3, si ponemos 3,5 busca entre 3 y 5, si ponemos 3, espacio, buca entre 3 e infinito
+//const regex11  = /\s/gm         : busca cualquier caracter de espacios en blanco
+//tanto \s como \w tienen sus inversos en mayúsculas 
+
+//Agrupación []
+//const regex13 = /[aeiou]rbol/gm  : buscar palabras como arbol, erbol, irbol, orbol, urbol
+//const regex14 = /[a-z]rbol/gm    :agrupo rango de letras de la "a" a la "z"
+//const regex 14 = /[a-zA-Z0-9]/gm :combino distintos rangos a-z, A-Z, 0-9
+
+//const encontrados = texto.match(regex3)
+//console.log(encontrados)
+//app.get("/buscandousuario", asycn (req, res, next)=> {
+    // const (search) = req.body
+    // const regex = /`${search}`/ig
+    // const usuarios = await Alumno.find(name: {$regex: regex})
+    // res.json( usuarios )
+
+//})
+
+
+
+
+
+
+
+
+
+
+
