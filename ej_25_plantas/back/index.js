@@ -1,10 +1,10 @@
 import express from "express"
 import cors from "cors"
-import router from "./routes/index.routes";
+import router from "./routes/index.routes.js";
 import mongoose from "mongoose";
 
-import { logger } from "./middlewares/logger";
-import { fullDomain, PORT } from "./config/config";
+import { logger } from "./middlewares/logger.js";
+import { fullDomain, PORT } from "./config/config.js";
 
 
 const app = express()
@@ -26,5 +26,5 @@ app.get("/", (req, res)=> {
 })
 
 app.listen(PORT, ()=> {
-    console.log(`Server is runnin on ${fullDomain}`);
+    console.log(`Server is running on ${fullDomain}`);
 });

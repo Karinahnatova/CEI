@@ -1,6 +1,6 @@
 import './App.css'
 import {Routes, Route, Outlet, Link} from 'react-router-dom'
-import Layout from './components/Layout'
+import Layout from './pages/Layout'
 
 
 

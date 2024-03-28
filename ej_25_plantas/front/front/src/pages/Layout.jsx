@@ -1,5 +1,5 @@
 import {Outlet} from 'react-router-dom'
-import Navigation from './Navigation'
+import Navigation from '../components/Navigation'
 import { useState, createContext } from 'react'
 
 export const AuthContext = createContext()

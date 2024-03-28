@@ -102,7 +102,7 @@ app.delete("/usuarios/:id", async(req, res, next)=> {
     const {id} = req.params
     try {
         const alumno = await Alumno.findByIdAndDelete(id)
-        res,json({
+        res.json({
           alu: alumno,
           status: "ok",
           msg: "Alumno eliminado con éxito"
