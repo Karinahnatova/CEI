@@ -1,0 +1,15 @@
+.Contenedor-buscador input {
+    width: 15rem;
+    margin: 1rem;
+    background-color: rgba(228, 231, 228, 0.844);
+    font-family: "Roboto", sans-serif;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    
+}
+
+.Contenedor-buscador {
+    display: flex;
+    justify-content: center;
+}

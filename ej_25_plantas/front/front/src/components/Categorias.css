@@ -1,0 +1,25 @@
+.Categorias-container img{
+    width: 120px;
+    height: 120px;
+    border-radius: 1rem;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.091);
+}
+
+.Categorias-container {
+    text-align: center;
+
+}
+
+.Texto-categorias {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 5px;
+}
+
+.Div-categorias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}

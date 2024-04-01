@@ -1,0 +1,69 @@
+
+.nav.isVisible {
+    display: none;
+}
+
+.Header {
+    /* padding: 0.5rem 1rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.076);
+}
+
+.Header_logo {
+  font-family: 'Melodrama', sans-serif;
+  font-weight: 100;
+  margin: 0.5rem;
+  color: #2e6a45;
+}
+
+.Header-button {
+    border: none;
+    background-color: transparent;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.material-symbols-outlined {
+    font-weight: 200;
+}
+
+.nav ul {
+    
+    list-style: none;
+    position:  absolute;
+    text-align: center;
+    background-color: #2e6a45;
+    width: 100vw;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    padding: 10px;
+    z-index: 999;
+    
+}
+
+.nav li {
+    font-size: 20px;
+    color: #ffffff;
+    padding: 1rem;
+
+}
+
+.nav li a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav {
+    width: 100%;
+    margin-left: -11.7rem;
+    margin-bottom: -1rem;
+}
+
