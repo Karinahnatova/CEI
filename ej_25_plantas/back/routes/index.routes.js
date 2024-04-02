@@ -1,7 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import { storage } from "../middlewares/storage.js";
-import { upload } from "../middlewares/storage.js";
+import  { upload } from "../middlewares/storage.js";
 import { getAllProducts, getProductById, addProduct, removeProduct, updateProduct } from "../controllers/products.controller.js";
 
 const router = Router()

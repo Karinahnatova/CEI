@@ -10,7 +10,7 @@ const Navigation = () => {
 
     return (
       <header className='Header'>
-      <h1 className='Header_logo'>VerdeCarlos</h1>
+      <h1 className='Header_logo'>VerdeCora</h1>
       <nav className={`nav ${isOpen ? "" : "isVisible"}`}>
       <ul>
         <li><Link to="/">Home</Link></li>
