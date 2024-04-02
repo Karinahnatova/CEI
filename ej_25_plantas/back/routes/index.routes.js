@@ -1,12 +1,12 @@
 import { Router } from "express";
 import multer from "multer";
 import { storage } from "../middlewares/storage.js";
+import { upload } from "../middlewares/storage.js";
 import { getAllProducts, getProductById, addProduct, removeProduct, updateProduct } from "../controllers/products.controller.js";
 
 const router = Router()
 
 //----------------❤️------RUTA MULTER--------❤️---------------------------
-const upload = multer({ storage: storage })
 
 router.post("/subirarchivo", upload.single('image'), (req, res)=> {
   //estos datos me los ha creado mutler
@@ -20,6 +20,7 @@ router.post("/subirarchivo", upload.single('image'), (req, res)=> {
 })
 
 //----------------❤️------RUTA PRODUCTOS--------❤️---------------------------
+
 router.get("/products", getAllProducts)
 
 router.get("/products/:id", getProductById)

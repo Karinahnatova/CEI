@@ -10,10 +10,13 @@ import { fullDomain, PORT } from "./config/config.js";
 const app = express()
 console.clear()
 
+app.use('/files', express.static('uploads'))
+//localhost:8080/files/nombredelaimagen.jpg
+
 app.use(cors())
 app.use(logger)
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
 
 app.use("/API/v1/", router)
 app.get("/", (req, res)=> {

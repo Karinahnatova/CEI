@@ -35,27 +35,24 @@ const productSchema = new mongoose.Schema({
 
 }, options)
 
-const Product = mongoose.model("Product", productSchema)
+const Product = mongoose.model("Producto", productSchema)
 
 export const getAllProducts = async (req, res) => {
     try {
-        const {nombre, descripcion, cantidad, cantidad_vendidos, precio, id_subcategoria, edad, raza, color} = req.params
-        const result = Product.find()
+        console.log()
+        const result = await Product.find()
         res.json(result)
-        res.status(200).json('Trayendo todos los productos')
 
     }catch (error) {
         res.status(400).json('Error')
-
     }
 }
 
 export const getProductById = async (req, res) => {
     try {
         const {id} = req.params
-        const result = Product.findById({id})
+        const result = await Product.findById(id)
         res.json(result)
-        res.status(200).json('Buscando producto por id')
 
     }catch (error) {
         res.status(400).json('Error')
